@@ -1,0 +1,54 @@
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#fffaf8;--surface:#ffffff;--text:#1f1a17;--muted:#6f625c;--line:rgba(31,26,23,.08);--shadow:0 18px 60px rgba(47,26,17,.08);--radius:22px}
+body{font-family:'Inter',sans-serif;color:var(--text);background:var(--bg);line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,calc(100% - 2rem));margin:0 auto}
+.site-header{position:fixed;width:100%;top:0;z-index:1000;backdrop-filter:blur(14px);background:rgba(255,250,248,.75);border-bottom:1px solid var(--line)}
+.nav{min-height:74px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:700}
+nav{display:flex;gap:1.2rem;flex-wrap:wrap}
+nav a{font-weight:500;color:var(--muted)}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding-top:80px}
+.slideshow,.slide,.hero-overlay{position:absolute;inset:0}
+.slide{background-size:cover;background-position:center;opacity:0;transform:scale(1.04);transition:opacity 1s ease,transform 6s ease}
+.slide.active{opacity:1;transform:scale(1)}
+.hero-overlay{background:linear-gradient(90deg,rgba(26,17,12,.60),rgba(26,17,12,.25),rgba(26,17,12,.35));z-index:1}
+.hero-content{position:relative;z-index:2;color:#fff;max-width:740px}
+.eyebrow,.section-tag{text-transform:uppercase;letter-spacing:.18em;font-size:.78rem;font-weight:600}
+.hero h1,.section-head h2,.about-text h2{font-family:'Playfair Display',serif;line-height:1.08}
+.hero h1{font-size:clamp(2.6rem,5.6vw,5rem);margin:.9rem 0 1rem}
+.hero-text{max-width:640px;font-size:1.08rem;color:rgba(255,255,255,.92)}
+.hero-buttons{display:flex;gap:1rem;margin-top:1.8rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.95rem 1.35rem;border-radius:999px;font-weight:600;transition:.25s ease}
+.btn-primary{background:#fff;color:var(--text)}
+.btn-secondary{border:1px solid rgba(255,255,255,.55);color:#fff;background:rgba(255,255,255,.08)}
+.btn:hover{transform:translateY(-2px)}
+.slideshow-dots{position:absolute;z-index:3;left:50%;bottom:2rem;transform:translateX(-50%);display:flex;gap:.7rem}
+.dot{width:12px;height:12px;border:none;border-radius:50%;background:rgba(255,255,255,.45);cursor:pointer}
+.dot.active{background:#fff}
+.section,.brands{padding:6rem 0}
+.alt-section{background:linear-gradient(180deg,#fff6f2 0%,#fffaf8 100%)}
+.section-head{max-width:700px;margin-bottom:2.2rem}
+.section-head.centered{text-align:center;margin-inline:auto;margin-bottom:2.5rem}
+.section-head h2,.about-text h2{font-size:clamp(2rem,4vw,3.2rem);margin:.4rem 0 .8rem}
+.section-head p,.card-body p,.campaign-box p,.contact-box p,.about-text p,.campaign-box li{color:var(--muted)}
+.brand-grid,.card-grid{display:grid;gap:1.4rem}
+.brand-grid{grid-template-columns:repeat(3,1fr)}
+.brand-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.6rem;text-align:center;font-weight:600;box-shadow:var(--shadow)}
+.card-grid{grid-template-columns:repeat(3,1fr)}
+.content-card,.campaign-box,.about-panel,.contact-box{background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow)}
+.content-card{overflow:hidden;border-radius:var(--radius)}
+.card-image{height:260px;background-size:cover;background-position:center}
+.card-body{padding:1.4rem}
+.card-body h3,.campaign-box h3{font-family:'Playfair Display',serif;margin-bottom:.6rem;font-size:1.45rem}
+.campaign-layout,.about-layout{display:grid;grid-template-columns:1.2fr .8fr;gap:1.5rem;align-items:start}
+.campaign-box,.about-panel,.contact-box{border-radius:var(--radius);padding:1.6rem}
+.campaign-box ul{padding-left:1.1rem;margin-top:.8rem}
+.about-panel{display:grid;gap:1rem}
+.mini-stat{padding:1rem 1.1rem;border-radius:18px;background:#fff7f3;border:1px solid var(--line)}
+.mini-stat span{display:block;color:var(--muted);margin-bottom:.3rem}
+.contact-box{max-width:720px;margin:0 auto;text-align:center}
+.site-footer{border-top:1px solid var(--line);background:#fff}
+.footer-wrap{min-height:80px;display:flex;justify-content:space-between;align-items:center;gap:1rem;color:var(--muted);font-size:.95rem}
+@media (max-width:900px){.brand-grid,.card-grid,.campaign-layout,.about-layout{grid-template-columns:1fr}.footer-wrap{flex-direction:column;justify-content:center;padding:1.2rem 0;text-align:center}}
+@media (max-width:640px){.nav{flex-direction:column;justify-content:center;gap:.7rem;padding:.9rem 0}.site-header{position:sticky}.hero{min-height:88vh;padding-top:40px}.hero-buttons{flex-direction:column;align-items:flex-start}}
