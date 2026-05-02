@@ -34,8 +34,8 @@
     .slideshow,.slide,.hero-overlay{position:absolute;inset:0}
     .slide{background-size:cover;background-position:center;opacity:0;transition:opacity 900ms ease;transform:scale(1.04)}
     .slide.active{opacity:1}
-    .hero-overlay{z-index:1;background:linear-gradient(90deg,rgba(25,12,7,.45),rgba(25,12,7,.25),rgba(25,12,7,.1))}
-    .hero-content{position:relative;z-index:2;max-width:760px;margin-left:max(4%,calc((100% - 1120px)/2));padding:40px 0 120px;background:rgba(0,0,0,0.25);backdrop-filter:blur(6px);border-radius:16px;padding:30px}
+    .hero-overlay{z-index:1;background:linear-gradient(90deg,rgba(25,12,7,.18),rgba(25,12,7,.08),rgba(25,12,7,0))}
+    ..hero-content{position:relative;z-index:2;max-width:680px;margin-left:max(4%,calc((100% - 1120px)/2));padding:0 0 120px;text-shadow:0 3px 18px rgba(0,0,0,.55)}
     .eyebrow,.section-tag{text-transform:uppercase;letter-spacing:.18em;font-size:12px;font-weight:700;color:var(--accent)}
     .hero .eyebrow{color:#ffd2bc}
     h1,h2,h3{font-family:'Playfair Display',serif;line-height:1.08;margin:0 0 18px}
@@ -76,7 +76,7 @@
     .contact-box{max-width:620px;margin:auto;background:var(--surface-2);border:1px solid var(--border);border-radius:28px;padding:34px;text-align:center}
     .site-footer{background:#211512;color:rgba(255,255,255,.72);padding:28px 0}
     .footer-wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:14px}
-    @media(max-width:800px){.nav{height:auto;padding:16px 0;align-items:flex-start;flex-direction:column}.site-header{position:absolute}nav{gap:14px}.hero{padding-top:120px}.card-grid,.brand-grid,.campaign-layout,.about-layout{grid-template-columns:1fr}h1{font-size:44px}.hero-content{padding:80px 0}}
+    @media(max-width:800px){.nav{height:auto;padding:16px 0;align-items:flex-start;flex-direction:column}.site-header{position:absolute}nav{gap:14px}.hero{padding-top:120px}.card-grid,.brand-grid,.campaign-layout,.about-layout{grid-template-columns:1fr}h1{font-size:44px}..hero-content{padding:0 0 100px}
   </style>
 </head>
 <body>
@@ -95,11 +95,8 @@
 
   <main>
     <section id="home" class="hero">
-      <div class="hero-overlay"></div>
-
-      <div class="slideshow">
-        <div class="slide" style="background-image:url('Khadija4.jpeg');"></div>
-        <div class="slide" style="background-image:url('Khadija5.jpeg');"></div>
+      <div class="hero-overlay"le="background-image:url('Khadija4.jpeg');"></div>
+<div class="slide active" style="background-image:url('Khadija4.jpeg');"></div>;"></div>
         <div class="slide" style="background-image:url('Khadija6.jpeg');"></div>
       </div>
 
