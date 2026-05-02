@@ -55,8 +55,16 @@
     .section-head{max-width:720px;margin-bottom:42px}
     .section-head.centered{text-align:center;margin-left:auto;margin-right:auto}
     .section-head p{color:var(--muted)}
-    .brand-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .brand-card{background:var(--surface-2);border:1px solid var(--border);padding:28px;border-radius:24px;text-align:center;font-weight:700;color:var(--accent-dark)}
+    .logo-carousel{overflow:hidden;position:relative;padding:14px 0;margin-top:20px}
+    .logo-carousel::before,.logo-carousel::after{content:"";position:absolute;top:0;width:90px;height:100%;z-index:2;pointer-events:none}
+    .logo-carousel::before{left:0;background:linear-gradient(90deg,var(--surface),transparent)}
+    .logo-carousel::after{right:0;background:linear-gradient(270deg,var(--surface),transparent)}
+    .logo-track{display:flex;gap:22px;width:max-content;animation:logoScroll 28s linear infinite}
+    .logo-carousel:hover .logo-track{animation-play-state:paused}
+    .brand-card{width:180px;height:110px;flex:0 0 180px;background:var(--surface-2);border:1px solid var(--border);padding:20px;border-radius:24px;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 32px rgba(65,35,22,.08)}
+    .brand-card img{max-width:130px;max-height:70px;object-fit:contain;transition:.3s ease}
+    .brand-card:hover img{transform:scale(1.06)}
+    @keyframes logoScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
     .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
     .content-card{background:var(--surface);border:1px solid var(--border);border-radius:28px;overflow:hidden;box-shadow:var(--shadow)}
     .card-image{height:290px;background-size:cover;background-position:center}
@@ -107,7 +115,7 @@
         <p class="eyebrow">Creator • Lifestyle • Brand Storytelling</p>
         <h1>Stories through taste, beauty, travel, and style.</h1>
         <p class="hero-text">
-          Khadija Akter creates visually engaging content around restaurants, food, resorts, lifestyle, and makeup — crafted to help brands connect with audiences in an authentic and memorable way.
+          Digital content creator with 5+ years of experience in social media content, visual storytelling, and brand collaborations. Specialized in beauty, lifestyle, and food-related content that connects brands with audiences in an authentic and engaging way.
         </p>
         <div class="hero-buttons">
           <a href="#projects" class="btn btn-primary">View Projects</a>
@@ -127,15 +135,27 @@
         <div class="section-head centered">
           <p class="section-tag">Collaborations</p>
           <h2>Brands I’ve Worked With</h2>
-          <p>Replace these placeholders later with your real brand names or logos.</p>
+          <p>Trusted by brands across food, beauty, lifestyle, hospitality, and community-focused creative work.</p>
         </div>
-        <div class="brand-grid">
-          <div class="brand-card">Brand Name 01</div>
-          <div class="brand-card">Brand Name 02</div>
-          <div class="brand-card">Brand Name 03</div>
-          <div class="brand-card">Brand Name 04</div>
-          <div class="brand-card">Brand Name 05</div>
-          <div class="brand-card">Brand Name 06</div>
+
+        <div class="logo-carousel" aria-label="Brand logo carousel">
+          <div class="logo-track">
+            <div class="brand-card"><img src="Cinnabon-logo.png" alt="Cinnabon"></div>
+            <div class="brand-card"><img src="Fuchka.png" alt="Fuchka"></div>
+            <div class="brand-card"><img src="Grill Nordic.jpg" alt="Grill Nordic"></div>
+            <div class="brand-card"><img src="IH.png" alt="International House Oulu"></div>
+            <div class="brand-card"><img src="Salon Virho.png" alt="Salon Virho"></div>
+            <div class="brand-card"><img src="Taj Mahal.png" alt="Taj Mahal"></div>
+            <div class="brand-card"><img src="unilever-logo-2004.png" alt="Unilever"></div>
+
+            <div class="brand-card"><img src="Cinnabon-logo.png" alt="Cinnabon"></div>
+            <div class="brand-card"><img src="Fuchka.png" alt="Fuchka"></div>
+            <div class="brand-card"><img src="Grill Nordic.jpg" alt="Grill Nordic"></div>
+            <div class="brand-card"><img src="IH.png" alt="International House Oulu"></div>
+            <div class="brand-card"><img src="Salon Virho.png" alt="Salon Virho"></div>
+            <div class="brand-card"><img src="Taj Mahal.png" alt="Taj Mahal"></div>
+            <div class="brand-card"><img src="unilever-logo-2004.png" alt="Unilever"></div>
+          </div>
         </div>
       </div>
     </section>
@@ -182,8 +202,8 @@
         </div>
         <div class="campaign-layout">
           <div class="campaign-box">
-            <h3>Campaign Placeholder</h3>
-            <p>Brand collaboration details, campaign concept, deliverables, reach, and performance can be added here later.</p>
+            <h3>Brand Collaborations</h3>
+            <p>Worked with multiple brands to create social media campaigns including product promotion, lifestyle storytelling, and short-form video content. Delivered content focused on engagement, reach, and brand identity.</p>
           </div>
           <div class="campaign-box">
             <h3>Content Formats</h3>
@@ -205,10 +225,13 @@
           <p class="section-tag">About</p>
           <h2>About Khadija Akter</h2>
           <p>
-            Khadija Akter is a content creator who blends visual storytelling with brand communication across food, restaurant, resort, lifestyle, and makeup content. Her work focuses on creating attractive and relatable digital experiences that help brands stand out.
+            Khadija Akter is a creative and motivated digital content creator with over five years of experience in content creation, visual design, and digital marketing. She specializes in beauty, lifestyle, and social media storytelling.
           </p>
           <p>
-            This website template is designed to grow with your portfolio — making it easy to add campaigns, featured visuals, collaborations, and social links over time.
+            She has worked with international and local brands including Cinnabon, Unilever, Daraz, Vivo, and Pran, creating engaging content for Facebook and Instagram campaigns.
+          </p>
+          <p>
+            Currently based in Oulu, Finland, she is expanding her expertise in the beauty industry while continuing to create high-quality digital content.
           </p>
         </div>
         <div class="about-panel">
@@ -236,10 +259,10 @@
           <p>Add your email, social links, or collaboration form here later.</p>
         </div>
         <div class="contact-box">
-          <p><strong>Email:</strong> yourname@example.com</p>
+          <p><strong>Email:</strong> khadijaakter385@gmail.com</p>
+          <p><strong>Phone:</strong> +358 46 633 9130</p>
+          <p><strong>Location:</strong> Oulu, Finland</p>
           <p><strong>Instagram:</strong> @yourhandle</p>
-          <p><strong>TikTok:</strong> @yourhandle</p>
-          <p><strong>YouTube:</strong> Your channel link</p>
         </div>
       </div>
     </section>
