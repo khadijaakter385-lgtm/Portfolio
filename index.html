@@ -73,9 +73,63 @@
     .analytics-icon{margin-bottom:10px}
     .analytics-icon img{width:44px;height:44px;object-fit:contain;margin-bottom:4px}
     .analytics-card p{margin:0;color:var(--muted);font-size:14px}
-    .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-    .content-card{background:var(--surface);border:1px solid var(--border);border-radius:28px;overflow:hidden;box-shadow:var(--shadow)}
-    .card-image{height:290px;background-size:cover;background-position:center}
+    .journey-section{margin-top:96px;padding:86px 0 78px;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 35%,rgba(185,111,74,.28),transparent 42%),linear-gradient(135deg,#150d0a 0%,#24140e 48%,#0f0a08 100%);border-radius:44px;color:#fff;box-shadow:0 35px 110px rgba(65,35,22,.28)}
+    .journey-section::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 20%,rgba(255,210,188,.14),transparent 28%),radial-gradient(circle at 80% 50%,rgba(185,111,74,.18),transparent 34%);pointer-events:none}
+    .journey-section::after{content:"";position:absolute;left:8%;right:8%;bottom:46px;height:2px;background:linear-gradient(90deg,transparent,rgba(232,176,137,.85),transparent);box-shadow:0 0 30px rgba(232,176,137,.55);pointer-events:none}
+    .journey-section .section-head{position:relative;z-index:2;margin-bottom:26px}
+    .journey-section .section-tag{color:#e8b089}
+    .journey-section h2{font-family:'Playfair Display',serif;color:#fff;font-size:clamp(38px,5vw,68px);letter-spacing:.2px}
+    .journey-section h2 em{font-style:italic;color:#e8b089}
+    .journey-section .section-head p{color:rgba(255,255,255,.72)}
+    .timeline{position:relative;z-index:2;height:520px;margin:38px auto 0;perspective:1400px;overflow:hidden}
+    .timeline-stage{position:relative;width:100%;height:430px;transform-style:preserve-3d}
+    .timeline-item{position:absolute;top:26px;left:50%;width:285px;height:390px;border-radius:28px;overflow:hidden;padding:0;border:1px solid rgba(232,176,137,.28);box-shadow:0 32px 80px rgba(0,0,0,.48);background:#211512;color:#fff;transition:transform .8s cubic-bezier(.2,.8,.2,1),opacity .8s ease,filter .8s ease;opacity:0;filter:blur(2px) brightness(.55);transform:translateX(-50%) scale(.72)}
+    .timeline-item.active{z-index:5;opacity:1;filter:blur(0) brightness(1);transform:translateX(-50%) translateZ(120px) scale(1.12)}
+    .timeline-item.prev{z-index:4;opacity:.86;filter:blur(.4px) brightness(.72);transform:translateX(-106%) rotateY(24deg) scale(.88)}
+    .timeline-item.next{z-index:4;opacity:.86;filter:blur(.4px) brightness(.72);transform:translateX(6%) rotateY(-24deg) scale(.88)}
+    .timeline-item.far-prev{z-index:2;opacity:.43;filter:blur(1.6px) brightness(.48);transform:translateX(-157%) rotateY(36deg) scale(.72)}
+    .timeline-item.far-next{z-index:2;opacity:.43;filter:blur(1.6px) brightness(.48);transform:translateX(57%) rotateY(-36deg) scale(.72)}
+    .timeline-item::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 0%,rgba(0,0,0,.20) 42%,rgba(0,0,0,.88) 100%);z-index:1}
+    .timeline-item::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.18),transparent 35%,rgba(232,176,137,.12));z-index:2;pointer-events:none}
+    .timeline-bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.05);transition:transform .9s ease}
+    .timeline-item.active .timeline-bg{transform:scale(1)}
+    .timeline-content{position:absolute;left:24px;right:24px;bottom:24px;z-index:3;text-align:left}
+    .timeline-count{position:absolute;right:20px;top:20px;z-index:3;background:rgba(0,0,0,.52);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:8px 12px;font-size:12px;color:rgba(255,255,255,.75)}
+    .timeline-count strong{color:#e8b089}
+    .timeline-year{display:inline-flex;align-items:center;padding:7px 14px;border-radius:999px;background:linear-gradient(135deg,#b96f4a,#e8b089);color:#fff;font-weight:800;font-size:13px;margin-bottom:14px;box-shadow:0 10px 28px rgba(185,111,74,.34)}
+    .timeline-item h3{font-family:'Playfair Display',serif;font-size:28px;line-height:1.08;margin:0 0 12px;color:#fff;text-align:left}
+    .timeline-item p{margin:0;color:rgba(255,255,255,.76);font-size:14px;line-height:1.55;text-align:left}
+    .timeline-location{display:flex;align-items:center;gap:7px;margin-top:16px;color:#d6b28e;font-size:13px}
+    .timeline-location::before{content:"⌖";font-size:16px;color:#e8b089}
+    .timeline-badge,.timeline-dot,.timeline-center{display:none}
+    .timeline-controls{position:absolute;left:0;right:0;top:188px;z-index:8;display:flex;justify-content:space-between;pointer-events:none;padding:0 30px}
+    .timeline-btn{width:58px;height:58px;border-radius:50%;border:1px solid rgba(232,176,137,.42);background:rgba(0,0,0,.25);color:#e8b089;font-size:36px;line-height:1;cursor:pointer;pointer-events:auto;backdrop-filter:blur(12px);transition:.3s ease}
+    .timeline-btn:hover{background:rgba(232,176,137,.14);transform:scale(1.08)}
+    .timeline-dots{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);display:flex;align-items:center;gap:14px;z-index:8}
+    .journey-dot{width:9px;height:9px;border-radius:50%;border:0;background:rgba(232,176,137,.42);cursor:pointer;transition:.3s ease}
+    .journey-dot.active{width:22px;height:22px;background:transparent;border:4px solid #e8b089;box-shadow:0 0 22px rgba(232,176,137,.75)}
+    .journey-footnote{position:relative;z-index:2;text-align:center;margin-top:18px;color:#e8b089;text-transform:uppercase;letter-spacing:.22em;font-size:13px;font-weight:800}
+    @media(max-width:760px){.journey-section{border-radius:30px;padding:62px 0}.timeline{height:auto;overflow:visible}.timeline-stage{height:auto;display:grid;gap:22px}.timeline-item,.timeline-item.active,.timeline-item.prev,.timeline-item.next,.timeline-item.far-prev,.timeline-item.far-next{position:relative;left:auto;top:auto;width:100%;height:360px;opacity:1;filter:none;transform:none}.timeline-controls,.timeline-dots{display:none}.journey-footnote{font-size:11px;line-height:1.8;padding:0 20px}}
+    .projects-showcase{display:grid;grid-template-columns:1.25fr .75fr;gap:24px;align-items:stretch}
+    .projects-featured{position:relative;min-height:640px;border-radius:34px;overflow:hidden;background:#1d120e;box-shadow:0 35px 90px rgba(65,35,22,.20)}
+    .projects-featured::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.04) 0%,rgba(0,0,0,.30) 42%,rgba(0,0,0,.92) 100%);z-index:1}
+    .projects-featured img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.03);transition:transform 1.1s ease}
+    .projects-featured:hover img{transform:scale(1)}
+    .projects-overlay{position:absolute;left:34px;right:34px;bottom:34px;z-index:2;color:#fff}
+    .projects-overlay h3{font-size:42px;line-height:1.02;margin-bottom:16px;color:#fff}
+    .projects-overlay p{font-size:15px;line-height:1.7;color:rgba(255,255,255,.76);max-width:620px}
+    .project-tags{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+    .project-tags span{display:inline-flex;align-items:center;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.10);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.12);font-size:12px;font-weight:700;letter-spacing:.05em;color:#fff}
+    .projects-side{display:grid;grid-template-columns:1fr;gap:22px}
+    .project-mini{position:relative;height:198px;border-radius:28px;overflow:hidden;box-shadow:0 24px 70px rgba(65,35,22,.14)}
+    .project-mini::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.75));z-index:1}
+    .project-mini img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+    .project-mini:hover img{transform:scale(1.08)}
+    .project-mini-content{position:absolute;left:22px;right:22px;bottom:22px;z-index:2;color:#fff}
+    .project-mini-content h4{margin:0 0 8px;font-size:24px;font-family:'Playfair Display',serif;line-height:1.1}
+    .project-mini-content p{margin:0;font-size:13px;color:rgba(255,255,255,.72);line-height:1.5}
+    @media(max-width:900px){.projects-showcase{grid-template-columns:1fr}.projects-featured{min-height:560px}.projects-overlay h3{font-size:34px}}
+    @media(max-width:560px){.projects-featured{min-height:500px}.projects-overlay{left:22px;right:22px;bottom:22px}.projects-overlay h3{font-size:28px}.project-tags span{font-size:11px;padding:8px 12px}}
     .card-body{padding:26px}
     .card-body p,.campaign-box p,.about-text p{color:var(--muted)}
     .alt-section{background:var(--surface-2)}
@@ -92,6 +146,8 @@
     .contact-box{max-width:620px;margin:auto;background:var(--surface-2);border:1px solid var(--border);border-radius:28px;padding:34px;text-align:center}
     .site-footer{background:#211512;color:rgba(255,255,255,.72);padding:28px 0}
     .footer-wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:14px}
+    @media(max-width:900px){.timeline{width:min(620px,94vw);height:390px}.timeline::before{width:560px;height:190px}.timeline::after{width:410px;height:135px}.timeline-item{width:158px;min-height:158px;padding:22px 16px}.timeline-center{width:165px;height:165px}.timeline-center strong{font-size:23px}.timeline-item p{display:none}@keyframes orbitOne{0%{transform:translate(-50%,-50%) rotateY(0deg) translateZ(235px) rotateY(0deg) scale(1)}25%{transform:translate(-50%,-50%) rotateY(90deg) translateZ(235px) rotateY(-90deg) scale(.82)}50%{transform:translate(-50%,-50%) rotateY(180deg) translateZ(235px) rotateY(-180deg) scale(.68)}75%{transform:translate(-50%,-50%) rotateY(270deg) translateZ(235px) rotateY(-270deg) scale(.88)}100%{transform:translate(-50%,-50%) rotateY(360deg) translateZ(235px) rotateY(-360deg) scale(1)}}}
+    @media(max-width:560px){.timeline{height:auto;width:100%;display:grid;grid-template-columns:1fr;gap:18px}.timeline::before,.timeline::after,.timeline-center{display:none}.timeline-item,.timeline-item:nth-child(2),.timeline-item:nth-child(3),.timeline-item:nth-child(4),.timeline-item:nth-child(5){position:relative;left:auto;top:auto;transform:none;width:100%;min-height:auto;border-radius:28px!important}.timeline-item p{display:block}.timeline-year{font-size:44px}}
     @media(max-width:800px){.nav{height:auto;padding:16px 0;align-items:flex-start;flex-direction:column}.site-header{position:absolute}nav{gap:14px}.hero{padding-top:120px}.card-grid,.brand-grid,.campaign-layout,.about-layout{grid-template-columns:1fr}h1{font-size:44px}.hero-content{padding:0 0 100px}}
   </style>
 </head>
@@ -102,7 +158,7 @@
       <nav>
         <a href="#home">Home</a>
         <a href="#projects">Projects</a>
-        <a href="#campaigns">Campaigns</a>
+        
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -200,6 +256,98 @@
             <p>Content creation, brand collaborations, and social media campaigns across food, beauty, lifestyle, and hospitality.</p>
           </div>
         </div>
+
+        <div class="journey-section">
+          <div class="section-head centered">
+            <p class="section-tag">Journey Timeline</p>
+            <h2>My Journey <em>So Far</em></h2>
+            <p>From learning the basics to building a strong creative presence — a visual timeline of growth, content creation, and brand storytelling.</p>
+          </div>
+
+          <div class="timeline">
+            <div class="timeline-controls">
+              <button class="timeline-btn timeline-prev" aria-label="Previous journey item">‹</button>
+              <button class="timeline-btn timeline-next" aria-label="Next journey item">›</button>
+            </div>
+
+            <div class="timeline-stage">
+              <div class="timeline-item far-prev">
+                <div class="timeline-bg" style="background-image:url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80');"></div>
+                <div class="timeline-count"><strong>01</strong> / 06</div>
+                <div class="timeline-content">
+                  <span class="timeline-year">2018</span>
+                  <h3>Content Creator</h3>
+                  <p>Beauty • Lifestyle • Food • Travel</p>
+                  <div class="timeline-location">2018 – Present</div>
+                </div>
+              </div>
+
+              <div class="timeline-item prev">
+                <div class="timeline-bg" style="background-image:url('https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=900&q=80');"></div>
+                <div class="timeline-count"><strong>02</strong> / 06</div>
+                <div class="timeline-content">
+                  <span class="timeline-year">2024</span>
+                  <h3>Radisson Blu Hotel</h3>
+                  <p>Restaurant & Hotel Industry, Customer Service</p>
+                  <div class="timeline-location">Oulu, Finland</div>
+                </div>
+              </div>
+
+              <div class="timeline-item active">
+                <div class="timeline-bg" style="background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80');"></div>
+                <div class="timeline-count"><strong>03</strong> / 06</div>
+                <div class="timeline-content">
+                  <span class="timeline-year">2025</span>
+                  <h3>Villa Victor</h3>
+                  <p>Social Media & Communication Trainee</p>
+                  <div class="timeline-location">Oulu, Finland</div>
+                </div>
+              </div>
+
+              <div class="timeline-item next">
+                <div class="timeline-bg" style="background-image:url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80');"></div>
+                <div class="timeline-count"><strong>04</strong> / 06</div>
+                <div class="timeline-content">
+                  <span class="timeline-year">2025</span>
+                  <h3>International House Oulu</h3>
+                  <p>Content Production & Communication</p>
+                  <div class="timeline-location">Business Oulu</div>
+                </div>
+              </div>
+
+              <div class="timeline-item far-next">
+                <div class="timeline-bg" style="background-image:url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80');"></div>
+                <div class="timeline-count"><strong>05</strong> / 06</div>
+                <div class="timeline-content">
+                  <span class="timeline-year">2026</span>
+                  <h3>Hair Salon Virho</h3>
+                  <p>Beauty Care & Social Media Trainee</p>
+                  <div class="timeline-location">Oulu, Finland</div>
+                </div>
+              </div>
+
+              <div class="timeline-item far-prev">
+                <div class="timeline-bg" style="background-image:url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80');"></div>
+                <div class="timeline-count"><strong>06</strong> / 06</div>
+                <div class="timeline-content">
+                  <span class="timeline-year">2024–2026</span>
+                  <h3>Arffman Finland Oy</h3>
+                  <p>Integration Training • Finnish Language B1.1</p>
+                  <div class="timeline-location">Oulu, Finland</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-dots">
+              <button class="journey-dot" aria-label="Academic Foundation"></button>
+              <button class="journey-dot" aria-label="Content Creation Begins"></button>
+              <button class="journey-dot active" aria-label="Brand Collaborations"></button>
+              <button class="journey-dot" aria-label="Creative Growth in Finland"></button>
+            </div>
+          </div>
+
+          <div class="journey-footnote">✦ 7+ Years of Passion. Purpose. Progress.</div>
+        </div>
       </div>
     </section>
 
@@ -210,28 +358,53 @@
           <h2>Featured Projects</h2>
           <p>A showcase space for your best restaurant, resort, makeup, lifestyle, and food content.</p>
         </div>
-        <div class="card-grid">
-          <article class="content-card">
-            <div class="card-image" style="background-image:url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1000&q=80');"></div>
-            <div class="card-body">
-              <h3>Restaurant Visual Campaign</h3>
-              <p>Highlight signature dishes, ambiance, and brand identity through polished short-form content and still photography.</p>
+        <div class="projects-showcase">
+          <div class="projects-featured">
+            <img src="Project 3.jpg" alt="Featured Creative Projects">
+            <div class="projects-overlay">
+              <h3>Creative Projects & Cultural Storytelling</h3>
+              <p>Capturing stories through fashion, culture, hospitality, events, food experiences, and creative campaigns across Oulu’s growing international and artistic community.</p>
+
+              <div class="project-tags">
+                <span>Oulu City Library Photoshoot</span>
+                <span>Arctic Food Lab Model Project</span>
+                <span>Oulu Talent Story Video Project</span>
+                <span>Kuninkuusravit Opening Parade</span>
+                <span>Sivakka Model Project</span>
+                <span>Africans in Oulu Fashion Show</span>
+                <span>Colourful Restaurant</span>
+                <span>Oulu Kylässä 2025</span>
+                <span>National Costume Presentation</span>
+                <span>Oulu 2026 ECoC Marketing</span>
+              </div>
             </div>
-          </article>
-          <article class="content-card">
-            <div class="card-image" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80');"></div>
-            <div class="card-body">
-              <h3>Resort Experience Story</h3>
-              <p>Capture the stay experience through aesthetic visuals, room features, food moments, and travel lifestyle storytelling.</p>
+          </div>
+
+          <div class="projects-side">
+            <div class="project-mini">
+              <img src="Project 4.jpeg" alt="Creative Event Coverage">
+              <div class="project-mini-content">
+                <h4>Event & Culture</h4>
+                <p>Fashion shows, cultural presentations, and community storytelling projects.</p>
+              </div>
             </div>
-          </article>
-          <article class="content-card">
-            <div class="card-image" style="background-image:url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=80');"></div>
-            <div class="card-body">
-              <h3>Beauty & Makeup Content</h3>
-              <p>Create clean and engaging beauty content tailored for product features, tutorials, and brand-led campaigns.</p>
+
+            <div class="project-mini">
+              <img src="Project 5.png" alt="Lifestyle and Branding">
+              <div class="project-mini-content">
+                <h4>Lifestyle & Branding</h4>
+                <p>Visual storytelling, audience engagement, and social-first creative campaigns.</p>
+              </div>
             </div>
-          </article>
+
+            <div class="project-mini">
+              <img src="Project 6.png" alt="Food and Hospitality Content">
+              <div class="project-mini-content">
+                <h4>Food & Hospitality</h4>
+                <p>Creative visuals and promotional storytelling for hospitality and food experiences.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -319,6 +492,32 @@
   </footer>
 
   <script>
+    const journeyCards = document.querySelectorAll('.timeline-item');
+    const journeyDots = document.querySelectorAll('.journey-dot');
+    const journeyPrev = document.querySelector('.timeline-prev');
+    const journeyNext = document.querySelector('.timeline-next');
+    let journeyCurrent = 2;
+
+    function updateJourney(index){
+      if(!journeyCards.length) return;
+      journeyCurrent = (index + journeyCards.length) % journeyCards.length;
+      journeyCards.forEach((card, i) => {
+        card.classList.remove('active','prev','next','far-prev','far-next');
+        const diff = (i - journeyCurrent + journeyCards.length) % journeyCards.length;
+        if(diff === 0) card.classList.add('active');
+        else if(diff === 1) card.classList.add('next');
+        else if(diff === journeyCards.length - 1) card.classList.add('prev');
+        else if(diff === 2) card.classList.add('far-next');
+        else card.classList.add('far-prev');
+      });
+      journeyDots.forEach((dot, i) => dot.classList.toggle('active', i === journeyCurrent));
+    }
+
+    journeyPrev?.addEventListener('click', () => updateJourney(journeyCurrent - 1));
+    journeyNext?.addEventListener('click', () => updateJourney(journeyCurrent + 1));
+    journeyDots.forEach((dot, i) => dot.addEventListener('click', () => updateJourney(i)));
+    setInterval(() => updateJourney(journeyCurrent + 1), 4200);
+
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
     let current = 0;
